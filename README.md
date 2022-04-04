@@ -1,4 +1,4 @@
 # Hotel Reservation System
 
 ## User Stories
-![User Stories](user-stories.png)
+![User Stories](use-case-diagram.png)
