@@ -1,0 +1,120 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.nav-custom {
+  background-color: #927668;
+}
+#try {
+  color: #fff;
+}
+#container {
+  background-image: url(/public/hotel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+#signup {
+  background-image: url(/public/hotelogin.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+/* #image-div {
+ margin-top: 50px;
+} */
+#back {
+  color: #fff;
+  padding-top: 100px;
+  padding-left: 70px;
+}
+#booking {
+  background-color: #927668;
+  height: 100vh;
+}
+.welcome {
+  font-family: Avenir;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  padding-top: 60px;
+}
+.reserve {
+  font-family: Avenir;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  padding-top: 60px;
+}
+.rights {
+  font-family: Avenir;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  padding-top: 250px;
+}
+#form {
+  font-style: italic;
+  font-family: Avenir;
+  color: #fff;
+  background-color: #a99a93;
+  height: 583px;
+  width: 431px;
+  left: 47px;
+  top: 88px;
+  border-radius: 8px;
+  margin-top: 100px;
+  margin-left: 40px;
+  padding: 10px;
+}
+#booking-form {
+  font-style: italic;
+  font-family: Avenir;
+  color: #fff;
+  background-color: #a99a93;
+  height: 583px;
+  width: 431px;
+  left: 47px;
+  top: 88px;
+  border-radius: 8px;
+  margin-top: 150px;
+  margin-left: 40px;
+  padding: 10px;
+}
+#button {
+  background-color: #8b6451;
+  color: #fff;
+  border: none;
+  width: 100%;
+  font-style: italic;
+}
+#signupp {
+  font-family: Avenir;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 49px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+  padding-top: 60px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
