@@ -5,3 +5,6 @@
 
 ## Context Diagram
 ![Context Diagram](Context-diagram.png)
+
+## Class Diagram
+![Class Diagram](Class-diagram.png)
