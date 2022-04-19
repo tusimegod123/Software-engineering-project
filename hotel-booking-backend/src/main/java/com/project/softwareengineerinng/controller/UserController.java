@@ -30,7 +30,7 @@ public class UserController {
         return userService.findAll();
 
     }
-    @GetMapping("/{field}")
+    @GetMapping("/users/{field}")
     public List<User> findBySort(@PathVariable String field) {
 
         return userService.sortAscending(field);
