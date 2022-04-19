@@ -10,13 +10,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { render } from "react-dom";
+import Home from "./components/Home";
 //import { BrowserRouter } from "react-router-dom";
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<ProductComponent />}></Route>
+      <Route path="/" element={<Home />}></Route>
       <Route path="/signup" element={<Signup />} />
       <Route path="/login" element={<Login />} />
       <Route path="/booking" element={<Booking />} />
