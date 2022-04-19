@@ -24,6 +24,10 @@ public class Room {
     private boolean smoking;
     private String description;
     private boolean isAvailable;
+    @ManyToOne
+    @JoinColumn(name = "reservation_Id")
+    private Reservation reservation;
+
 
     public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
                 Integer maxNumberOfGuests, boolean smoking, String description,boolean isAvailable) {
