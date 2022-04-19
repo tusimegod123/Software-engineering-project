@@ -11,14 +11,15 @@ class NavBar extends React.Component {
       <div>
         <Navbar className="nav-custom" expand="lg">
           <Container>
-            <Navbar.Brand id="try" href="#home">
+            <Navbar.Brand id="try" href="/">
               Maharishi Hotel
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#home">Contact Us</Nav.Link>
-                <Nav.Link href="#link">Link</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/booking">Make A Reservation</Nav.Link>
+                <Nav.Link href="/rooms">Rooms Management</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">

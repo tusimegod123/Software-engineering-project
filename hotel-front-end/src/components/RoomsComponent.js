@@ -1,11 +1,11 @@
 import React from "react";
 import "../App.css";
 import Container from "react-bootstrap/Container";
-import { Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Row, Col, Form, Button, Card, Table } from "react-bootstrap";
 import axios from "axios";
 import NavBar from "./NavBar";
 
-class Booking extends React.Component {
+class RoomsComponent extends React.Component {
   state = {
     dateOfArrival: "",
     dateOfDeparture: "",
@@ -41,8 +41,8 @@ class Booking extends React.Component {
   };
   render() {
     return (
-      <div id="booking">
-        {/* <NavBar /> */}
+      <div id="rooms-div">
+        <NavBar />
 
         <Container fluid>
           <Row>
@@ -52,7 +52,7 @@ class Booking extends React.Component {
               </a>
             </div>
             <Col>
-              <Form id="booking-form" onSubmit={this.submitHandler}>
+              <Form id="room-form" onSubmit={this.submitHandler}>
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
@@ -94,37 +94,11 @@ class Booking extends React.Component {
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
-                <div>
-                  <Card style={{ width: "14rem" }}>
-                    <Card.Body>
-                      <Card.Title style={{ color: "black" }}>
-                        Card Title
-                      </Card.Title>
-                      <Card.Text style={{ color: "black" }}>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </Card.Text>
-                      <Button variant="primary">Remove</Button>
-                    </Card.Body>
-                  </Card>
-                </div>
+
                 <Button id="button" type="submit">
                   Submit
                 </Button>
               </Form>
-              <div>
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </div>
             </Col>
 
             <Col>
@@ -132,8 +106,43 @@ class Booking extends React.Component {
                 <p className="welcome">
                   Welcome To Our World, Book With Us And Enjoy Your Stay..
                 </p>
-                <img src="/hotel.jpg" height="650" width="660"></img>
+                <img src="/hotel.jpg" height="500" width="660"></img>
               </div>
+            </Col>
+          </Row>
+        </Container>
+        <Container>
+          <Row>
+            <Col>
+              <Table striped bordered hover size="sm">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td colSpan={2}>Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </Table>
             </Col>
           </Row>
         </Container>
@@ -141,4 +150,4 @@ class Booking extends React.Component {
     );
   }
 }
-export default Booking;
+export default RoomsComponent;

@@ -7,8 +7,6 @@ import com.project.softwareengineerinng.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,11 +18,11 @@ public class BookingService {
     @Autowired
     UserRepository userRepository;
 
-    public  BookHotel  saveBooking(BookHotel bookHotel){
+    public BookHotel saveBooking(BookHotel bookHotel) {
         return bookingRepository.save(bookHotel);
     }
 
-    public  BookHotel save(BookHotel bookHotel, String email) {
+    public BookHotel save(BookHotel bookHotel, String email) {
         User retrivedUser = userRepository.findByEmail(email);
         bookHotel.getUserDetails().add(retrivedUser);
         return bookingRepository.save(bookHotel);

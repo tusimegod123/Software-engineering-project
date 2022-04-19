@@ -33,6 +33,10 @@
   background-color: #927668;
   height: 100vh;
 }
+#rooms-div {
+  background-color: #8b604b;
+
+}
 .welcome {
   font-family: Avenir;
   font-size: 20px;
@@ -85,8 +89,22 @@
   font-family: Avenir;
   color: #fff;
   background-color: #a99a93;
-  height: 583px;
-  width: 431px;
+  /* height: 583px; */
+  /* width: 431px; */
+  left: 47px;
+  top: 88px;
+  border-radius: 8px;
+  margin-top: 150px;
+  margin-left: 40px;
+  padding: 10px;
+}
+#room-form {
+  font-style: italic;
+  font-family: Avenir;
+  color: #fff;
+  background-color: #a99a93;
+  /* height: 583px; */
+  /* width: 431px; */
   left: 47px;
   top: 88px;
   border-radius: 8px;
