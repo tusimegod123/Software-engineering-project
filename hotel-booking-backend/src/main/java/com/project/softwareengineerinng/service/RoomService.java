@@ -10,4 +10,5 @@ public interface RoomService {
     public abstract Room createRoom(Room room);
     public abstract void deleteRoom(Long roomId);
     public abstract Room updateRoom(Long roomId,Room room);
+    public abstract Room findByRoomNumber(Integer roomNumber);
 }
