@@ -1,135 +1,103 @@
 import React from "react";
 import "../App.css";
 import Container from "react-bootstrap/Container";
-import { Row, Col, Form, Button, Card } from "react-bootstrap";
-import axios from "axios";
+import { Row, Col } from "react-bootstrap";
 import NavBar from "./NavBar";
+import AddBookingForm from "./AddBookingForm";
+import AvailableRoomList from "./AvailableRoomList";
+import axios from "axios";
 
 class Booking extends React.Component {
   state = {
-    dateOfArrival: "",
-    dateOfDeparture: "",
-    numberOfRooms: "",
-    otherReservations: "",
-  };
+    rooms: [],
+    selectedRooms: []
+  }
 
-  changeHandler = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  componentDidMount() {
+    this.getRooms();
+  }
 
-  submitHandler = (event) => {
-    event.preventDefault();
-    const bookingDetails = {
-      dateOfArrival: this.state.dateOfArrival,
-      dateOfDeparture: this.state.dateOfDeparture,
-      numberOfRooms: this.state.password,
-      otherReservations: this.state.otherReservations,
-    };
+  getRooms = () => {
+    axios.get("http://localhost:8080/api/rooms/", {
+      headers: {
+        Authorization:
+          "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
+      },
+    }).then((res) => {
+      this.setState({
+        rooms: res.data.map((room) => {
+          return {
+            ...room,
+            selected: false
+          };
+        }),
+      }).catch((error) => console.log(error));
+    });
+  }
 
-    axios
-      .post("http://localhost:8080/booking", bookingDetails, {
-        headers: {
-          Authorization:
-            "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        //window.location = "/";
-      })
-      .catch((err) => console.log(err));
-  };
+  addRoom = (room) => {
+    room.selected = true;
+    let { selectedRooms } = this.state;
+    if(selectedRooms && selectedRooms.length > 0){
+      selectedRooms = [
+        ...this.state.selectedRooms.filter(aRoom => aRoom.roomNumber !== room.roomNumber),
+        room
+      ]
+    } else {
+      selectedRooms = [room]
+    }
+    this.setState({
+      selectedRooms,
+      rooms: [
+        room,
+        ...this.state.rooms.filter(aRoom => aRoom.roomNumber !== room.roomNumber)
+      ]
+    })
+  }
+
+  removeRoom = (room) => {
+    room.selected = false;
+    this.setState({
+      selectedRooms : [
+          ...this.state.selectedRooms.filter(aRoom => aRoom.roomNumber !== room.roomNumber),
+      ],
+      rooms: [
+        room,
+        ...this.state.rooms.filter(aRoom => aRoom.roomNumber !== room.roomNumber)
+      ]
+    })
+  }
   render() {
+    const { rooms, selectedRooms } = this.state;
     return (
       <div id="booking">
         <NavBar />
-        <br></br>
         <Container fluid>
-          <Row>
-            <Col>
-              <Form id="booking-form" onSubmit={this.submitHandler}>
-                <h3 style={{ textAlign: "center" }}>Make Your Reservation</h3>
-                <Row className="mb-3">
-                  <Form.Group
-                    as={Col}
-                    className="mb-3"
-                    controlId="formBasicEmail"
-                  >
-                    <Form.Label>Date of Arrival</Form.Label>
-                    <Form.Control
-                      type="date"
-                      name="dateOfArrival"
-                      onChange={this.changeHandler}
-                    />
-                  </Form.Group>
-                  <Form.Group as={Col} controlId="formBasicEmail">
-                    <Form.Label>Date Of Departure</Form.Label>
-                    <Form.Control
-                      type="date"
-                      name="dateOfDeparture"
-                      onChange={this.changeHandler}
-                    />
-                  </Form.Group>
-                </Row>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                  <Form.Label>Number of Rooms</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter Number of Rooms"
-                    name="numberOfRooms"
-                    onChange={this.changeHandler}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                  <Form.Label>Other Reservations</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Other Reservations other than Rooms"
-                    name="otherReservations"
-                    onChange={this.changeHandler}
-                  />
-                </Form.Group>
-                <div>
-                  <Card style={{ width: "14rem" }}>
-                    <Card.Body>
-                      <Card.Title style={{ color: "black" }}>
-                        Card Title
-                      </Card.Title>
-                      <Card.Text style={{ color: "black" }}>
-                        Some quick example text to build on the card title and
-                        make up the bulk of the card's content.
-                      </Card.Text>
-                      <Button variant="primary">Remove</Button>
-                    </Card.Body>
-                  </Card>
-                </div>
-                <Button id="button" type="submit">
-                  Submit
-                </Button>
-              </Form>
-              <div>
-                <Card style={{ width: "18rem" }}>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </div>
-            </Col>
-
-            <Col>
-              <div id="image-div">
-                <p className="welcome">
+        <Row>
+        <Col>
+              <div id="image-div" style={{"margin":"0 auto 1rem"}}>
+                <p className="welcome" style={{ "textAlign": "center"}}>
                   Welcome To Our World, Book With Us And Enjoy Your Stay..
                 </p>
-                <img src="/hotel.jpg" height="530" width="660" alt=""></img>
+                <img style={{
+                  "height" : "200px",
+                  "margin" : "0 auto",
+                  "display" : "block"
+                }} src="/hotel.jpg" height="530" width="660" alt=""></img>
               </div>
+            </Col>
+        </Row>
+          <Row>
+            <Col>
+              <AddBookingForm rooms={selectedRooms} />
+            </Col>
+            <Col>
+              {rooms.length > 0 ? 
+              <AvailableRoomList 
+                rooms={this.state.rooms} 
+                addRoom={this.addRoom} 
+                removeRoom={this.removeRoom} /> 
+              : <>No Rooms available</>}
             </Col>
           </Row>
         </Container>
