@@ -45,6 +45,9 @@ public class SoftwareEngineeringApplication implements CommandLineRunner {
 		// reservationRepository.save(r1);
 	}
 
+	public static void main(String[] args) {
+		SpringApplication.run(SoftwareEngineeringApplication.class, args);
+	}
 	@Bean
 	public ModelMapper modelMapper() {
 		return new ModelMapper();
