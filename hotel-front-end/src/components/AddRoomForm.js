@@ -50,10 +50,10 @@ class AddRoomForm extends React.Component {
 
     axios
       .post("http://localhost:8080/api/rooms/", roomDetails, {
-        // headers: {
-        //   Authorization:
-        //     "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
-        // },
+        headers: {
+          Authorization:
+            "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
+        },
       })
       .then((res) => {
         console.log(res);

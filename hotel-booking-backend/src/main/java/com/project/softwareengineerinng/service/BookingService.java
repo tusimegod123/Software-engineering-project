@@ -1,9 +1,12 @@
 package com.project.softwareengineerinng.service;
 
 import com.project.softwareengineerinng.model.BookHotel;
+import com.project.softwareengineerinng.model.Room;
 import com.project.softwareengineerinng.model.User;
 import com.project.softwareengineerinng.repository.BookingRepository;
 import com.project.softwareengineerinng.repository.UserRepository;
+import com.project.softwareengineerinng.service.Impl.RoomServiceImpl;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,20 +19,29 @@ public class BookingService {
     BookingRepository bookingRepository;
 
     @Autowired
+    RoomServiceImpl roomService;
+
+    @Autowired
     UserRepository userRepository;
 
-    public BookHotel saveBooking(BookHotel bookHotel) {
-        return bookingRepository.save(bookHotel);
-    }
+    // public BookHotel saveBooking(BookHotel bookHotel, Integer id) {
+    // Room room = roomService.findByRoomNumber(id);
+    //
+    // return bookingRepository.save(bookHotel);
+    // }
 
-    public BookHotel save(BookHotel bookHotel, String email) {
+    public BookHotel save(@NotNull BookHotel bookHotel, String email) {
         User retrivedUser = userRepository.findByEmail(email);
+        var rooms = bookHotel.getRooms().stream().map(room -> {
+            Room aRoom = (Room) roomService.findById(room.getRoomId());
+            aRoom.setBookHotel(bookHotel);
+            return aRoom;
+        }).toList();
+        bookHotel.setRooms(rooms);
+        // System.out.println("Hotel booking: " + bookHotel.getRooms());
+        // if(room!=null) bookHotel.getRooms().add(room);
         bookHotel.getUserDetails().add(retrivedUser);
         return bookingRepository.save(bookHotel);
-    }
-
-    public <S extends BookHotel> Iterable<S> saveAll(Iterable<S> entities) {
-        return bookingRepository.saveAll(entities);
     }
 
     public Optional<BookHotel> findById(Integer integer) {

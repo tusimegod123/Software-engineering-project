@@ -38,8 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService);
     }
+
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 
@@ -52,21 +53,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-//                .antMatchers("/authenticate").permitAll()
-//                .antMatchers("/register").permitAll()
-                .anyRequest().permitAll()
-//                .authenticated()
+                .antMatchers("/api/authenticate").permitAll()
+                .antMatchers("/api/register").permitAll().anyRequest()
+                .authenticated()
                 .and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        //http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
-
+        http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        //
         // CORS configuration
         // This value must be parameterized according to your application needs
-      //  final String corsOrigin = "http://localhost:3000";
+        final String corsOrigin = "http://localhost:3000";
         // The idea is to insert the CORS filter before the filter injected by
         // the @EnableOAuth2Sso annotation
-//        http.addFilterBefore(new CorsFilter(corsConfigurationSource()),
-//                AbstractPreAuthenticatedProcessingFilter.class);
+        http.addFilterBefore(new CorsFilter(corsConfigurationSource()),
+                AbstractPreAuthenticatedProcessingFilter.class);
     }
 
     private CorsConfigurationSource corsConfigurationSource() {

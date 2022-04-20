@@ -10,16 +10,23 @@ class RoomsList extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get("http://localhost:8080/api/rooms/").then((res) => {
-      this.setState({
-        rooms: res.data.map((room) => {
-          return {
-            ...room,
-            available: room.available === true ? "Yes" : "No",
-          };
-        }),
-      }).catch((error) => console.log(error));
-    });
+    axios
+      .get("http://localhost:8080/api/rooms/", {
+        headers: {
+          Authorization:
+            "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
+        },
+      })
+      .then((res) => {
+        this.setState({
+          rooms: res.data.map((room) => {
+            return {
+              ...room,
+              available: room.available === true ? "Yes" : "No",
+            };
+          }),
+        }).catch((error) => console.log(error));
+      });
   }
   render() {
     return (

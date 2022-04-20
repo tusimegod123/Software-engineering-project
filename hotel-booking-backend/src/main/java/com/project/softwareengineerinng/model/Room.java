@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Data
 
 @Entity
@@ -27,21 +28,21 @@ public class Room {
     private String description;
     private boolean available;
     @ManyToOne
-    @JoinColumn(name = "reservation_Id")
+    @JoinColumn(name = "bookingId")
     @JsonIgnore
-    private Reservation reservation;
+    private BookHotel bookHotel;
 
-    public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
-            Integer maxNumberOfGuests, boolean smoking, String description, boolean available) {
-        this.roomNumber = roomNumber;
-        this.type = type;
-        this.price = price;
-        this.bedType = bedType;
-        this.numberOfBeds = numberOfBeds;
-        this.maxNumberOfGuests = maxNumberOfGuests;
-        this.smoking = smoking;
-        this.description = description;
-        this.available = available;
-
-    }
+//    public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
+//            Integer maxNumberOfGuests, boolean smoking, String description, boolean available) {
+//        this.roomNumber = roomNumber;
+//        this.type = type;
+//        this.price = price;
+//        this.bedType = bedType;
+//        this.numberOfBeds = numberOfBeds;
+//        this.maxNumberOfGuests = maxNumberOfGuests;
+//        this.smoking = smoking;
+//        this.description = description;
+//        this.available = available;
+//
+//    }
 }
