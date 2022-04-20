@@ -1,10 +1,9 @@
 package com.project.softwareengineerinng;
 
-import com.project.softwareengineerinng.model.Reservation;
-import com.project.softwareengineerinng.model.Room;
-import com.project.softwareengineerinng.model.User;
+import com.project.softwareengineerinng.model.*;
 import com.project.softwareengineerinng.repository.ReservationRepository;
 import com.project.softwareengineerinng.repository.RoomRepository;
+import com.project.softwareengineerinng.repository.StayRepository;
 import com.project.softwareengineerinng.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -26,6 +26,8 @@ public class SoftwareEngineeringApplication implements CommandLineRunner {
 	private ReservationRepository reservationRepository;
 	@Autowired
 	private RoomRepository roomRepository;
+	@Autowired
+	private StayRepository stayRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -43,6 +45,13 @@ public class SoftwareEngineeringApplication implements CommandLineRunner {
 		// r1.addRoom(ro1);
 		// r1.addRoom(ro2);
 		// reservationRepository.save(r1);
+		Stay s1=new Stay(LocalDate.of(2022,4,19),LocalDate.of(2022,4,25),2,30.0,true);
+		ServiceReceived se1=new ServiceReceived(LocalDate.of(2022,04,19),"wifi",20.0);
+		List<ServiceReceived> list=new ArrayList<>();
+		list.add(se1);
+		s1.setServiceReceived(list);
+		stayRepository.save(s1);
+
 	}
 
 	public static void main(String[] args) {
