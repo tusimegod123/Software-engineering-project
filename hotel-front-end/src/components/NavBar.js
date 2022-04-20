@@ -16,27 +16,27 @@ class NavBar extends React.Component {
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
-              <Nav className="me-auto">
-                <Nav.Link href="/login">Login</Nav.Link>
-                <Nav.Link href="/booking">Make A Reservation</Nav.Link>
-                <Nav.Link href="/rooms">Rooms Management</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Something
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Separated link
+              <Nav className="me-auto" style={{ color: "white" }}>
+                <Nav.Link href="/login" style={{ color: "white" }}>
+                  Login
+                </Nav.Link>
+                <Nav.Link href="/booking" style={{ color: "white" }}>
+                  Make A Reservation
+                </Nav.Link>
+                <Nav.Link href="/rooms" style={{ color: "white" }}>
+                  Rooms Management
+                </Nav.Link>
+                <NavDropdown title="More Actions" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/bookings">Bookings</NavDropdown.Item>
+                  <NavDropdown.Item href="/myreservations">
+                    My Reservation
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>
           </Container>
         </Navbar>
+        <br></br>
       </div>
     );
   }

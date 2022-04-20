@@ -40,11 +40,13 @@ class Signup extends React.Component {
 
         <Container fluid>
           <Row>
+            <Col md={2}></Col>
             <Col>
               <Form id="form" onSubmit={this.submitHandler}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Full Name</Form.Label>
                   <Form.Control
+                    size="lg"
                     type="text"
                     placeholder="Enter name"
                     name="fullName"
@@ -55,6 +57,7 @@ class Signup extends React.Component {
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
+                    size="lg"
                     type="email"
                     placeholder="Enter email"
                     name="email"
@@ -68,22 +71,71 @@ class Signup extends React.Component {
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
+                    size="lg"
                     type="password"
                     placeholder="Password"
                     name="password"
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
-                <Button id="button" type="submit">
+                <Button id="button" type="submit" size="lg">
                   Sign Up
+                </Button>
+
+                <br></br>
+                <br></br>
+                <h1 style={{ textAlign: "center" }}>OR</h1>
+                <br></br>
+                <Button
+                  style={{
+                    backgroundColor: "#C8BFBA",
+                    fontSize: "1.2rem",
+                    width: "45%",
+                  }}
+                >
+                  <img
+                    src="/google.png"
+                    style={{ width: "40px", padding: "5px" }}
+                    alt="Google"
+                  />
+                  Google
+                </Button>
+                {"      "}
+
+                <Button
+                  style={{
+                    backgroundColor: "#fff",
+                    color: "#000",
+                    fontSize: "1.2rem",
+                    width: "50%",
+                  }}
+                >
+                  <img
+                    src="/apple.png"
+                    style={{ width: "40px", padding: "5px" }}
+                    alt="Apple"
+                  />
+                  Apple
                 </Button>
               </Form>
             </Col>
-            <Col></Col>
-            <Col></Col>
+
             <Col>
               <p id="signupp">Welcome To Our World, Get Ready By Signing Up</p>
+              <p
+                style={{
+                  color: "white",
+                  fontFamily: "Avenir",
+                  fontStyle: "italic",
+                  fontSize: "1.3rem",
+                  paddingTop: "150px",
+                  textAlign: "center",
+                }}
+              >
+                Already have an account? <a href="/login">Login</a>
+              </p>
             </Col>
+            <Col md={2}></Col>
           </Row>
         </Container>
       </div>

@@ -42,17 +42,13 @@ class Booking extends React.Component {
   render() {
     return (
       <div id="booking">
-        {/* <NavBar /> */}
-
+        <NavBar />
+        <br></br>
         <Container fluid>
           <Row>
-            <div id="back">
-              <a href="http://localhost:3000/" id="back">
-                Back Home
-              </a>
-            </div>
             <Col>
               <Form id="booking-form" onSubmit={this.submitHandler}>
+                <h3 style={{ textAlign: "center" }}>Make Your Reservation</h3>
                 <Row className="mb-3">
                   <Form.Group
                     as={Col}
@@ -132,7 +128,7 @@ class Booking extends React.Component {
                 <p className="welcome">
                   Welcome To Our World, Book With Us And Enjoy Your Stay..
                 </p>
-                <img src="/hotel.jpg" height="650" width="660"></img>
+                <img src="/hotel.jpg" height="530" width="660" alt=""></img>
               </div>
             </Col>
           </Row>
