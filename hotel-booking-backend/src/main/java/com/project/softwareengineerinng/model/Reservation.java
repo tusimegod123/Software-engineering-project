@@ -38,7 +38,7 @@ public class Reservation {
             rooms=new ArrayList<>();
         }
         room.setReservation(this);
+        room.setAvailable(false);
         rooms.add(room);
-
     }
 }

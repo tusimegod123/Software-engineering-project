@@ -1,5 +1,6 @@
 package com.project.softwareengineerinng.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +26,7 @@ public class Room {
     private String description;
     private boolean isAvailable;
     @ManyToOne
-    @JoinColumn(name = "reservation_Id")
+    @JoinColumn(name = "reservation_Id") @JsonIgnore
     private Reservation reservation;
 
 

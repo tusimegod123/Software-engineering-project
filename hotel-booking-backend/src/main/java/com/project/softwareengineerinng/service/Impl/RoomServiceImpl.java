@@ -42,4 +42,9 @@ public class RoomServiceImpl implements RoomService {
        room.setRoomId(roomId);
         return roomRepository.save(room);
     }
+
+    @Override
+    public Room findByRoomNumber(Integer roomNumber) {
+        return roomRepository.findByRoomNumber(roomNumber);
+    }
 }

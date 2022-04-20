@@ -1,5 +1,6 @@
 package com.project.softwareengineerinng.controller;
 
+import com.project.softwareengineerinng.dto.CreateReservationDTO;
 import com.project.softwareengineerinng.model.Reservation;
 import com.project.softwareengineerinng.service.ReservationService;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,10 @@ public class ReservationController {
         return reservationService.getReservationById(reservationId);
     }
 
-
+    @PostMapping
+    public Reservation createReservation(@RequestBody CreateReservationDTO reservationDTO){
+        return reservationService.createReservation(reservationDTO);
+    }
 
 
 
