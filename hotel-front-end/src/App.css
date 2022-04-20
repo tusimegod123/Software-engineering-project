@@ -6,6 +6,7 @@
 .nav-custom {
   background-color: #927668;
 }
+
 #try {
   color: #fff;
 }
@@ -38,6 +39,7 @@
 }
 #reservations {
   background-color: #8b604b;
+  height: 100vh;
 
 }
 .welcome {

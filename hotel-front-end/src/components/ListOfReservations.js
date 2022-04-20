@@ -11,7 +11,12 @@ class ListOfReservations extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get("http://localhost:8080/booking/").then((res) => {
+    axios.get("http://localhost:8080/booking/", {
+      headers: {
+        Authorization:
+          "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
+      },
+    }).then((res) => {
       this.setState({
         bookings: res.data.map((booking) => {
           return {
@@ -22,6 +27,9 @@ class ListOfReservations extends React.Component {
       }).catch((error) => console.log(error));
     });
   }
+
+  
+
   render() {
     return (
       <div id="reservations">
@@ -37,7 +45,6 @@ class ListOfReservations extends React.Component {
                   <tr>
                     <th>Arrival Date</th>
                     <th>Departure Date</th>
-                    <th>Room Price</th>
                     <th>Number of Rooms</th>
                     <th>Other Services</th>
                     <th>Reserved By?</th>
@@ -53,8 +60,7 @@ class ListOfReservations extends React.Component {
                       <td>{booking.dateOfDeparture}</td>
                       <td>{booking.numberOfRooms}</td>
                       <td>{booking.otherReservations}</td>
-                      {/* <td>{booking.description}</td>
-                      <td>{booking.available}</td> */}
+                      <td>{booking.userDetails[0].fullName}</td>
                       <td>
                         <Button
                           class="btn btn-primary"
