@@ -1,12 +1,12 @@
 package com.project.softwareengineerinng.controller;
 
 import com.project.softwareengineerinng.model.Room;
-import com.project.softwareengineerinng.service.Impl.RoomServiceImpl;
 import com.project.softwareengineerinng.service.RoomService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
 @RequestMapping("/api/rooms")
 public class RoomController {

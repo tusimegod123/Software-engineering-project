@@ -1,9 +1,6 @@
 import React from "react";
 import "../App.css";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { Row, Col } from "react-bootstrap";
 import NavBar from "./NavBar";
 
@@ -40,6 +37,7 @@ class Home extends React.Component {
         </Navbar> */}
 
         <NavBar />
+        <br></br>
         <Container fluid>
           <Row>
             <Col></Col>
