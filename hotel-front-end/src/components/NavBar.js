@@ -17,9 +17,6 @@ class NavBar extends React.Component {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="me-auto" style={{ color: "white" }}>
-                <Nav.Link href="/login" style={{ color: "white" }}>
-                  Login
-                </Nav.Link>
                 <Nav.Link href="/booking" style={{ color: "white" }}>
                   Make A Reservation
                 </Nav.Link>
@@ -33,6 +30,10 @@ class NavBar extends React.Component {
                   </NavDropdown.Item>
                 </NavDropdown>
               </Nav>
+              <Nav.Link href="/login" style={{ color: "white" }}>
+                Login
+              </Nav.Link>
+              <Nav.Link style={{ color: "white" }}>Username</Nav.Link>
             </Navbar.Collapse>
           </Container>
         </Navbar>

@@ -1,7 +1,6 @@
 package com.project.softwareengineerinng.controller;
 
 import com.project.softwareengineerinng.model.Room;
-import com.project.softwareengineerinng.service.Impl.RoomServiceImpl;
 import com.project.softwareengineerinng.service.RoomService;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,10 +1,10 @@
 package com.project.softwareengineerinng.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+
 @NoArgsConstructor
 @Data
 
@@ -26,7 +26,7 @@ public class Room {
     private boolean available;
 
     public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
-                Integer maxNumberOfGuests, boolean smoking, String description,boolean available) {
+            Integer maxNumberOfGuests, boolean smoking, String description, boolean available) {
         this.roomNumber = roomNumber;
         this.type = type;
         this.price = price;
@@ -35,10 +35,7 @@ public class Room {
         this.maxNumberOfGuests = maxNumberOfGuests;
         this.smoking = smoking;
         this.description = description;
-        this.available=available;
-
-
-
+        this.available = available;
 
     }
 }
