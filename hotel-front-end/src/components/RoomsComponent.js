@@ -99,10 +99,11 @@ class RoomsComponent extends React.Component {
         `http://localhost:8080/api/rooms/${roomToEdit.roomId}`,
         roomDetails,
         {
-          // headers: {
-          //   Authorization:
-          //     "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
-          // },
+          headers: {
+            Authorization:
+              "Bearer " +
+              localStorage.getItem("access-token").replace(/"/g, ""),
+          },
         }
       )
       .then((res) => {
@@ -116,10 +117,10 @@ class RoomsComponent extends React.Component {
     const { roomToEdit } = this.state;
     axios
       .delete(`http://localhost:8080/api/rooms/${roomToEdit.roomId}`, {
-        // headers: {
-        //   Authorization:
-        //     "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
-        // },
+        headers: {
+          Authorization:
+            "Bearer " + localStorage.getItem("access-token").replace(/"/g, ""),
+        },
       })
       .then((res) => {
         console.log(res);

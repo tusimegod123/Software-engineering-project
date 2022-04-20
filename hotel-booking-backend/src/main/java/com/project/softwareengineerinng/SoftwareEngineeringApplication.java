@@ -1,9 +1,9 @@
 package com.project.softwareengineerinng;
 
-import com.project.softwareengineerinng.model.Reservation;
+//import com.project.softwareengineerinng.model.Reservation;
 import com.project.softwareengineerinng.model.Room;
 import com.project.softwareengineerinng.model.User;
-import com.project.softwareengineerinng.repository.ReservationRepository;
+//import com.project.softwareengineerinng.repository.ReservationRepository;
 import com.project.softwareengineerinng.repository.RoomRepository;
 import com.project.softwareengineerinng.repository.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -22,8 +22,8 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class SoftwareEngineeringApplication implements CommandLineRunner {
-	@Autowired
-	private ReservationRepository reservationRepository;
+//	@Autowired
+//	private ReservationRepository reservationRepository;
 	@Autowired
 	private RoomRepository roomRepository;
 

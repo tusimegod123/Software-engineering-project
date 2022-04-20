@@ -18,11 +18,11 @@ class Login extends React.Component {
     event.preventDefault();
     let temp = { ...this.state };
     axios
-      .post("http://localhost:8080/authenticate", temp)
+      .post("http://localhost:8080/api/authenticate", temp)
       .then((res) => {
         console.log(res);
         localStorage.setItem("access-token", JSON.stringify(res.data));
-        // window.location = "/booking";
+        window.location = "/booking";
       })
       .catch((err) => console.log(err));
   };
