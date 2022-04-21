@@ -22,8 +22,8 @@ import java.util.stream.Stream;
 
 @SpringBootApplication
 public class SoftwareEngineeringApplication implements CommandLineRunner {
-	@Autowired
-	private ReservationRepository reservationRepository;
+//	@Autowired
+//	private ReservationRepository reservationRepository;
 	@Autowired
 	private RoomRepository roomRepository;
 	@Autowired

@@ -21,7 +21,7 @@ public class RoomController {
     }
     @GetMapping("/{roomId}")
     public Room getRoomById(@PathVariable Long roomId){
-        return roomService.getRoomById(roomId);
+        return roomService.findById(roomId);
     }
     @PostMapping("/")
     public Room createRoom(@RequestBody Room room){

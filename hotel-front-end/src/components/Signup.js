@@ -25,7 +25,7 @@ class Signup extends React.Component {
     };
 
     axios
-      .post("http://localhost:8080/register", myUserData)
+      .post("http://localhost:8080/api/register", myUserData)
       .then((res) => {
         console.log(res);
 
