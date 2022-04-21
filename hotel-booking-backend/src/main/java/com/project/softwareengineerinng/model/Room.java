@@ -32,17 +32,17 @@ public class Room {
     @JsonIgnore
     private BookHotel bookHotel;
 
-//    public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
-//            Integer maxNumberOfGuests, boolean smoking, String description, boolean available) {
-//        this.roomNumber = roomNumber;
-//        this.type = type;
-//        this.price = price;
-//        this.bedType = bedType;
-//        this.numberOfBeds = numberOfBeds;
-//        this.maxNumberOfGuests = maxNumberOfGuests;
-//        this.smoking = smoking;
-//        this.description = description;
-//        this.available = available;
-//
-//    }
+    public Room(Integer roomNumber, String type, Double price, String bedType, Integer numberOfBeds,
+            Integer maxNumberOfGuests, boolean smoking, String description, boolean available) {
+        this.roomNumber = roomNumber;
+        this.type = type;
+        this.price = price;
+        this.bedType = bedType;
+        this.numberOfBeds = numberOfBeds;
+        this.maxNumberOfGuests = maxNumberOfGuests;
+        this.smoking = smoking;
+        this.description = description;
+        this.available = available;
+
+    }
 }
